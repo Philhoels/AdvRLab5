@@ -19,10 +19,22 @@ require(wordcloud)
 TwitterWordCould <- function(word, min_freq, max_freq){
 
   #setup autorisierung ####
+  reqURL <- "https://api.twitter.com/oauth/request_token"
+  accessURL <- "http://api.twitter.com/oauth/access_token"
+  authURL <- "http://api.twitter.com/oauth/authorize"
+
   consumer_key <- "uYqdnmEfQdo8UCihFdYAKMST0"
   consumer_secret <- "DzJ7xkxx0XBbj0uuW8tWsqqTdgdm8r8L4JrbrKch6pP41mwhuK"
   access_token <- "864101367014711296-kzlQkr0oPj0793pAX3c4mPYtlvlX7Qw"
   access_secret <-"vPLJXprEMI3MlBUAXBpVvbOaeoPFVDxZwqUT0wRNF4fjQ"
+
+  twitCred <- OAuthFactory$new(consumerKey=consumerKey,
+                               consumerSecret=consumerSecret,
+                               requestURL=reqURL,
+                               accessURL=accessURL,
+                               authURL=authURL)
+  twitCred$handshake()
+  registerTwitterOAuth(twitCred)
 
   # setup
   setup_twitter_oauth(consumer_key, consumer_secret, access_token,access_secret)
@@ -52,12 +64,17 @@ TwitterWordCould <- function(word, min_freq, max_freq){
   term_freq_Tesla <- rowSums(as.matrix(tdm_Tesla))
   term_freq_Tesla <- subset(term_freq_Tesla, term_freq_Tesla >= 1)
   df_Tesla <- data.frame(term = names(term_freq_Tesla), freq = term_freq_Tesla)
-  print(df_Tesla)
 
   # create a word cloud
-  wc <- wordcloud(words = df_Tesla$term, freq = df_Tesla$freq, min.freq = min_freq,
-                   random.order=FALSE, rot.per=0.35, colors=brewer.pal(8, "Dark2"))
+  #wc <- wordcloud(words = df_Tesla$term, freq = df_Tesla$freq, min.freq = min_freq,
+                   #random.order=FALSE, rot.per=0.35, colors=brewer.pal(8, "Dark2"))
 
   # return
-  return(wc)
+  return(df_Tesla)
 }
+
+#TEST
+# data <- TwitterWordCould(word = "Audi", min_freq = 10, max_freq = 1000)
+# wordcloud(words = data$term, freq = data$freq, min.freq = 20,
+#           random.order=FALSE, rot.per=0.35, colors=brewer.pal(8, "Dark2"))
+# plot(data)

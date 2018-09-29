@@ -59,7 +59,7 @@ library(rsconnect)
 # User Interface ####
 ui <- fluidPage(
   # Text Input
-  #textInput(inputId = "title", label = "The title of the word cloud"),
+  textInput(inputId = "title", label = "The title of the word cloud"),
   textInput(inputId = "twitter_word", label = "Enter your ´search on twitter´ word here"),
 
   # Slider
@@ -85,30 +85,31 @@ ui <- fluidPage(
                min = 1,
                max = 10000,
                value = 500),
-  plotOutput("wordcloud")
-  #plotOutput("hist"),
-  #verbatimTextOutput("stats")
+  actionButton(inputId = "action_btn", lable = "Apply change"),
+  #plotOutput("wordcloud")
+  plotOutput("hist"),
+  verbatimTextOutput("stats")
 )
 server <- function(input, output){
   # save the data
   data <- reactive({
     rnorm(input$num_min)
   })
-  # # hist output
-  # output$hist <- renderPlot({
-  #   title <- "Twitter Word Cloud"
-  #   hist(rnorm(data()),
-  #        main = isolate({input$title}))
-  # })
-  # # stats output
-  # output$stats <- renderPrint(
-  #   summary(rnorm(data()))
-  # )
-  output$wordcloud <- renderPlot({
-    TwitterWordCould(isolate({word = input$twitter_word}),
-                     min_freq = input$num_min,
-                     max_freq = input$num_max)
+  # hist output
+  output$hist <- renderPlot({
+    title <- "Twitter Word Cloud"
+    hist(rnorm(data()),
+         main = isolate({input$title}))
   })
+  # stats output
+  output$stats <- renderPrint(
+    summary(rnorm(data()))
+  )
+  # output$wordcloud <- renderPlot({
+  #   TwitterWordCould(isolate({word = input$twitter_word}),
+  #                    min_freq = input$num_min,
+  #                    max_freq = input$num_max)
+  #})
 }
 shinyApp(ui = ui, server = server)
 
