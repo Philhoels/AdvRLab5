@@ -43,7 +43,6 @@ TwitterWordCould <- function(word, min_freq, max_freq){
 
   #create corpus from vector of tweets
   Tesla_corpus <- Corpus(VectorSource(Tesla_tweets_text))
-  #inspect(Tesla_corpus[1])
 
   #lower cases, remove numbers, cut out stopword, remove punctuation
   Tesla_clean <- tm_map(Tesla_corpus,removePunctuation)
@@ -56,18 +55,11 @@ TwitterWordCould <- function(word, min_freq, max_freq){
   #Term Document Matrix
   tdm_Tesla <- TermDocumentMatrix(Tesla_clean)
 
-  #create data frame ####
+  #create data frame
   term_freq_Tesla <- rowSums(as.matrix(tdm_Tesla))
   term_freq_Tesla <- subset(term_freq_Tesla, term_freq_Tesla >= 1)
   df_Tesla <- data.frame(term = names(term_freq_Tesla), freq = term_freq_Tesla)
 
-  # create a word cloud
-  #wc <- wordcloud(words = df_Tesla$term, freq = df_Tesla$freq, min.freq = min_freq,
-                   #random.order=FALSE, rot.per=0.35, colors=brewer.pal(8, "Dark2"))
-
-  # return
- # df_Tesla <- sort(df_Tesla$freq , decreasing = TRUE)
-  #data <<- df_Tesla
   return(df_Tesla)
 }
 
@@ -77,11 +69,7 @@ TwitterWordCould <- function(word, min_freq, max_freq){
 #           random.order=FALSE, rot.per=0.35, colors=brewer.pal(8, "Dark2"))
 # plot(data)
 
-data <- TwitterWordCould("Tesla", 10,100)
-data_test <- data
-data_test <- sort(data_test$freq, decreasing = TRUE)
+#data <- TwitterWordCould("Tesla", 10,100)
+#data_test <- data
+#data_test <- sort(data_test$freq, decreasing = TRUE)
 
-aa <- function(){
-  data("iris")
-  my_df <<- iris
-}
