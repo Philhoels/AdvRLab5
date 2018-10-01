@@ -18,6 +18,7 @@ knitr::opts_chunk$set(
 
 
 
+##About Text Mining
 
 ##What is Text Mining
 Text Mining is a process of extracting information from unstructured data files such as Word Documents, PDF Files, and XML Files. It is also known as Text Data Mining. 
