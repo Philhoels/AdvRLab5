@@ -25,6 +25,7 @@ shinyServer(function(input, output, searchword) {
 
   })
 
+
   output$wordcloud <- renderPlot({
     # create the needed data
     data <- TwitterWordCould(word = input$searchword,
