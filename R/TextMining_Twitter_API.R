@@ -13,6 +13,9 @@ require(tm)
 install.packages("wordcloud")
 library(wordcloud)
 require(wordcloud)
+install.packages(SnowballC)
+library(SnowballC)
+require(SnowballC)
 
 
 # the function ####
