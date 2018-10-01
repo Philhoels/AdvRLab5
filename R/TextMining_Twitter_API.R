@@ -28,14 +28,6 @@ TwitterWordCould <- function(word, min_freq, max_freq){
   access_token <- "864101367014711296-kzlQkr0oPj0793pAX3c4mPYtlvlX7Qw"
   access_secret <-"vPLJXprEMI3MlBUAXBpVvbOaeoPFVDxZwqUT0wRNF4fjQ"
 
-  twitCred <- OAuthFactory$new(consumerKey=consumerKey,
-                               consumerSecret=consumerSecret,
-                               requestURL=reqURL,
-                               accessURL=accessURL,
-                               authURL=authURL)
-  twitCred$handshake()
-  registerTwitterOAuth(twitCred)
-
   # setup
   setup_twitter_oauth(consumer_key, consumer_secret, access_token,access_secret)
 
@@ -70,11 +62,17 @@ TwitterWordCould <- function(word, min_freq, max_freq){
                    #random.order=FALSE, rot.per=0.35, colors=brewer.pal(8, "Dark2"))
 
   # return
+ # df_Tesla <- sort(df_Tesla$freq , decreasing = TRUE)
+
   return(df_Tesla)
 }
 
 #TEST
 # data <- TwitterWordCould(word = "Audi", min_freq = 10, max_freq = 1000)
-# wordcloud(words = data$term, freq = data$freq, min.freq = 20,
+#wordcloud(words = data$term, freq = data$freq, min.freq = 20,
 #           random.order=FALSE, rot.per=0.35, colors=brewer.pal(8, "Dark2"))
 # plot(data)
+
+data <- TwitterWordCould("Tesla", 10,1000)
+data_test <- data
+data_test <- sort(data_test$freq, decreasing = TRUE)
