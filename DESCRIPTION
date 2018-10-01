@@ -1,14 +1,14 @@
 Package: AdvRLab5
 Type: Package
-Title: What the Package Does (Title Case)
+Title: It creates a word cloud for a specific Tweet
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Author: Phillip Hölscher
+Maintainer: Phillip Hölscher <phiho267@student.liu.se>
+Description: Creats a word cloud of a specific Tweet in R Shiny
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
 Suggests: knitr,
     rmarkdown
 VignetteBuilder: knitr
+Depends: R (>= 3.1.0)

@@ -1,3 +1,18 @@
+# Documentation #####
+#'
+#' @description function create a data fram of the searched tweet including the frequency
+#'
+#'
+#' @param word , is the tweet search word
+#' @param min_freq , is the minimum frequency of the tweet search
+#' @param max_freq , is the maximum frequency of the tweet search
+#'
+#' @return df_Tesla , returns a data frame with the term and frequency
+#' @export
+#'
+
+
+
 # Setup ####
 # needed packages
 install.packages("twitteR")
@@ -9,7 +24,7 @@ install.packages("tm")
 require(tm)
 install.packages("wordcloud")
 require(wordcloud)
-install.packages(SnowballC)
+install.packages("SnowballC")
 require(SnowballC)
 
 #Load library
@@ -36,40 +51,40 @@ TwitterWordCould <- function(word, min_freq, max_freq){
   setup_twitter_oauth(consumer_key, consumer_secret, access_token,access_secret)
 
   # search Twitter, just english language, max frequency - max_freq (max is 1500 Tweets)
-  Tesla_tweets <- searchTwitter(word, lang = "en", n = max_freq)
+  tweets <- searchTwitter(word, lang = "en", n = max_freq)
 
   #convert to character vector
-  Tesla_tweets_text <- sapply(Tesla_tweets, function(x) x$getText())
+  tweets_text <- sapply(tweets, function(x) x$getText())
 
   #create corpus from vector of tweets
-  Tesla_corpus <- Corpus(VectorSource(Tesla_tweets_text))
+  tweets_corpus <- Corpus(VectorSource(tweets_text))
 
   #lower cases, remove numbers, cut out stopword, remove punctuation
-  Tesla_clean <- tm_map(Tesla_corpus,removePunctuation)
-  Tesla_clean <- tm_map(Tesla_clean,content_transformer(tolower))
-  Tesla_clean <- tm_map(Tesla_clean, removeWords,stopwords("english"))
-  Tesla_clean <- tm_map(Tesla_clean, removeNumbers)
-  Tesla_clean <- tm_map(Tesla_clean, stripWhitespace)
-  Tesla_clean <- tm_map(Tesla_clean, stemDocument)
+  tweets_clean <- tm_map(tweets_corpus,removePunctuation)
+  tweets_clean <- tm_map(tweets_clean,content_transformer(tolower))
+  tweets_clean <- tm_map(tweets_clean, removeWords,stopwords("english"))
+  tweets_clean <- tm_map(tweets_clean, removeNumbers)
+  tweets_clean <- tm_map(tweets_clean, stripWhitespace)
+  tweets_clean <- tm_map(tweets_clean, stemDocument)
 
   #Term Document Matrix
-  tdm_Tesla <- TermDocumentMatrix(Tesla_clean)
+  tdm_tweets <- TermDocumentMatrix(tweets_clean)
 
   #create data frame
-  term_freq_Tesla <- rowSums(as.matrix(tdm_Tesla))
-  term_freq_Tesla <- subset(term_freq_Tesla, term_freq_Tesla >= 1)
-  df_Tesla <- data.frame(term = names(term_freq_Tesla), freq = term_freq_Tesla)
+  term_freq_tweets <- rowSums(as.matrix(tdm_tweets))
+  term_freq_tweets <- subset(term_freq_tweets, term_freq_tweets >= 1)
+  df_tweets <- data.frame(term = names(term_freq_tweets), freq = term_freq_tweets)
 
-  return(df_Tesla)
+  # return the data frame
+  return(df_tweets)
 }
 
 #TEST
-# data <- TwitterWordCould(word = "Audi", min_freq = 10, max_freq = 1000)
+#data <- TwitterWordCould(word = "Audi", min_freq = 10, max_freq = 1000)
 #wordcloud(words = data$term, freq = data$freq, min.freq = 20,
 #           random.order=FALSE, rot.per=0.35, colors=brewer.pal(8, "Dark2"))
 # plot(data)
 
 #data <- TwitterWordCould("Tesla", 10,100)
 #data_test <- data
-#data_test <- sort(data_test$freq, decreasing = TRUE)
 
