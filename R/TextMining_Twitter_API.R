@@ -1,22 +1,23 @@
 # Setup ####
 # needed packages
 install.packages("twitteR")
-library(twitteR)
 require(twitteR)
 install.packages("RCurl")
-library(RCurl)
 require(RCurl)
 # part 2
 install.packages("tm")
-library(tm)
 require(tm)
 install.packages("wordcloud")
-library(wordcloud)
 require(wordcloud)
 install.packages(SnowballC)
-library(SnowballC)
 require(SnowballC)
 
+#Load library
+library(twitteR)
+library(RCurl)
+library(tm)
+library(wordcloud)
+library(SnowballC)
 
 # the function ####
 TwitterWordCould <- function(word, min_freq, max_freq){
@@ -42,7 +43,7 @@ TwitterWordCould <- function(word, min_freq, max_freq){
 
   #create corpus from vector of tweets
   Tesla_corpus <- Corpus(VectorSource(Tesla_tweets_text))
-  inspect(Tesla_corpus[1])
+  #inspect(Tesla_corpus[1])
 
   #lower cases, remove numbers, cut out stopword, remove punctuation
   Tesla_clean <- tm_map(Tesla_corpus,removePunctuation)
@@ -66,7 +67,7 @@ TwitterWordCould <- function(word, min_freq, max_freq){
 
   # return
  # df_Tesla <- sort(df_Tesla$freq , decreasing = TRUE)
-
+  #data <<- df_Tesla
   return(df_Tesla)
 }
 
@@ -76,6 +77,11 @@ TwitterWordCould <- function(word, min_freq, max_freq){
 #           random.order=FALSE, rot.per=0.35, colors=brewer.pal(8, "Dark2"))
 # plot(data)
 
-data <- TwitterWordCould("Tesla", 10,1000)
+data <- TwitterWordCould("Tesla", 10,100)
 data_test <- data
 data_test <- sort(data_test$freq, decreasing = TRUE)
+
+aa <- function(){
+  data("iris")
+  my_df <<- iris
+}

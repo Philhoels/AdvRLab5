@@ -19,7 +19,7 @@ shinyUI(fluidPage(
 
   # Text Input
   textInput(inputId = "searchword",
-            label = "Twitter search word"),
+            label = "Twitter search word", value = "water"),
 
   # Numeric input for min word frequency
   numericInput(inputId = "min_freq",
