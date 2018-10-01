@@ -1,0 +1,74 @@
+---
+title: "Vignette Title"
+author: "Vignette Author"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+
+
+##What is Text Mining
+Text Mining is a process of extracting information from unstructured data files such as Word Documents, PDF Files, and XML Files. It is also known as Text Data Mining. 
+
+Data mining is the process of identifying valid, novel, potentially useful, and ultimately understandable patterns in data stored in structured databases, where the data are organized in records structured by categorical, ordinal, or continuous variables. 
+
+##Types of Text Mining:-
+
+*Search and Information Retrieval (IR)*: 
+  Storage and retrieval of Text documents, including search engines and keyword search.
+
+*Document Clustering*: 
+  Grouping and categorizing terms, paragraphs or documents using data mining clustering methods. 
+
+*Document Classification*: 
+  Grouping and categorizing snippets, paragraphs, or document using data mining classification methods, based on models     trained on labeled examples. 
+
+*Web Mining*: 
+  Data and Text Mining on the Internet with a specific focus on the scale and interconnectedness of the web.
+
+*Information Extraction (IE)*: 
+  Identification and extraction of relevant facts and relationships from unstructured text; the process of making           structured data from unstructured and semi-structured text
+
+*Natural Language Processing (NLP)*: 
+  Low-level language processing and understanding tasks (e.g., tagging part of speech); often used synonymously with        computational linguistics.
+
+*Concept Extraction*: 
+  Grouping of words and phrases into semantically similar groups.
+  
+
+##Applications of Text Mining
+•Information extraction
+  Identification of key phrases and relationships within text by looking for predefined sequences in text via pattern       matching.
+•Topic tracking
+  Based on a user profile and documents that a user views, text mining can predict other documents of interest to the       user.
+•Summarization
+  Summarizing a document to save time on the part of the reader.
+•Categorization
+  Identifying the main themes of a document and then placing the document into a predefined set of categories based on      those themes.
+•Clustering
+  Grouping similar documents without having a predefined set of categories.
+•Concept linking
+  Connects related documents by identifying their shared concepts and, by doing so, helps users find information that they   perhaps would not have found using traditional search methods.
+•Question answering
+  Finding the best answer to a given question through knowledge-driven pattern matching.
+
+
+##Text Mining Process Pipeline
+  
+Data Collection
+Text Parsing 
+Text Filtering 
+Transformation 
+Text Mining
