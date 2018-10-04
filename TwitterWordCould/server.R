@@ -19,7 +19,7 @@ shinyServer(function(input, output, searchword) {
     isolate({
       withProgress({
         #Show the progress
-        setProgress(message = "Processing corpus...")
+        setProgress(message = "Processing word cloud...")
         #Call the function to crawl data from Twitter
         my_df <<- TwitterWordCould(word = input$searchword,
                                  max_freq = input$max_freq,

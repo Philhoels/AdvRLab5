@@ -15,24 +15,26 @@
 
 # Setup ####
 # needed packages
-install.packages("twitteR")
-require(twitteR)
-install.packages("RCurl")
-require(RCurl)
+install.packages("twitteR", repos = "http://cran.us.r-project.org")
+#require(twitteR)
+install.packages("RCurl", repos = "http://cran.us.r-project.org")
+#require(RCurl)
 # part 2
-install.packages("tm")
-require(tm)
-install.packages("wordcloud")
-require(wordcloud)
-install.packages("SnowballC")
-require(SnowballC)
+install.packages("SnowballC", repos = "http://cran.us.r-project.org")
+#require(SnowballC)
+install.packages("tm", repos = "http://cran.us.r-project.org")
+#require(tm)
+install.packages("wordcloud", repos = "http://cran.us.r-project.org")
+#require(wordcloud)
+
 
 #Load library
 library(twitteR)
 library(RCurl)
+library(SnowballC)
 library(tm)
 library(wordcloud)
-library(SnowballC)
+
 
 # the function ####
 TwitterWordCould <- function(word, min_freq, max_freq){
