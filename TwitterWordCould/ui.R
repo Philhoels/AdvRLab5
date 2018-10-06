@@ -25,12 +25,12 @@ shinyUI(fluidPage(# Slider layout
         value = "water"),
 
       # Numeric input for min word frequency, default is 50
-      numericInput(
+      sliderInput(
         inputId = "min_freq",
         label = "Minimum frequency of the search",
         value = 50,
-        max = 1500,
-        min = 1),
+        max = 200,
+        min = 10),
 
       # Slider input for max word frequency
       sliderInput(
