@@ -22,7 +22,7 @@ shinyServer(function(input, output, searchword) {
         setProgress(message = "Processing word cloud...")
         #Call the function to crawl data from Twitter
         my_df <<- TwitterWordCould(word = input$searchword,
-                                 max_freq = input$max_freq,
+                                 max_number = input$max_number,
                                  min_freq = input$min_freq)
       })
     })

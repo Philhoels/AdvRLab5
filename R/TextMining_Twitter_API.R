@@ -5,7 +5,7 @@
 #'
 #' @param word , is the tweet search word
 #' @param min_freq , is the minimum frequency of the tweet search
-#' @param max_freq , is the maximum frequency of the tweet search
+#' @param max_number , is the maximum number of the tweet search
 #'
 #' @return df_Tesla , returns a data frame with the term and frequency
 #' @export
@@ -37,7 +37,20 @@ library(wordcloud)
 
 
 # the function ####
-TwitterWordCould <- function(word, min_freq, max_freq){
+TwitterWordCould <- function(word, min_freq, max_number){
+  #Illegal input
+  if(typeof(word)!= "character")
+    stop("Illegal input word!")
+  if(typeof(min_freq)!= "double")
+    stop("Illegal input frequent!")
+  if(typeof(max_number)!= "double")
+    stop("Illegal input max number!")
+
+  #Maximum number of Twitt (Base on the limitation of API)
+  if(max_number> 1500)
+    stop("Can not handle more than 1500 Twitts")
+  if(min_freq < 10)
+    stop("Min frequent shoud not be too small (<10)")
 
   #setup autorisierung ####
   reqURL <- "https://api.twitter.com/oauth/request_token"
@@ -52,8 +65,8 @@ TwitterWordCould <- function(word, min_freq, max_freq){
   # setup
   setup_twitter_oauth(consumer_key, consumer_secret, access_token,access_secret)
 
-  # search Twitter, just english language, max frequency - max_freq (max is 1500 Tweets)
-  tweets <- searchTwitter(word, lang = "en", n = max_freq)
+  # search Twitter, just english language, max number - max_number (max is 1500 Tweets)
+  tweets <- searchTwitter(word, lang = "en", n = max_number)
 
   #convert to character vector
   tweets_text <- sapply(tweets, function(x) x$getText())
@@ -82,7 +95,7 @@ TwitterWordCould <- function(word, min_freq, max_freq){
 }
 
 #TEST
-#data <- TwitterWordCould(word = "Audi", min_freq = 10, max_freq = 1000)
+#data <- TwitterWordCould(word = "Audi", min_freq = 10, max_number = 1000)
 #wordcloud(words = data$term, freq = data$freq, min.freq = 20,
 #           random.order=FALSE, rot.per=0.35, colors=brewer.pal(8, "Dark2"))
 # plot(data)

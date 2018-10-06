@@ -34,8 +34,8 @@ shinyUI(fluidPage(# Slider layout
 
       # Slider input for max word frequency
       sliderInput(
-        inputId = "max_freq",
-        label = "Maximum of the word frequency",
+        inputId = "max_number",
+        label = "Maximum of the Twitt",
         value = 1500,
         max = 1500,
         min = 1),
