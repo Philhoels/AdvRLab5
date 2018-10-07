@@ -73,3 +73,42 @@ Text Parsing
 Text Filtering 
 Transformation 
 Text Mining
+
+
+# The TwitterWordCould function
+
+### Data Collection
+Via the serachTwitter function of the twitteR package is it possible to load tweets for a specific tweet.
+```
+tweets <- searchTwitter(word, lang = "en", n = max_number)
+```
+
+The text mining pipline indicates at the beginning to create corpus. 
+There exist a function in the tm package.
+```
+tweets_corpus <- Corpus(VectorSource(tweets_text))
+```
+
+### Text Parsing, Text Filtering - Data Cleaning
+
+```
+  tweets_clean <- tm_map(tweets_corpus,removePunctuation)
+  tweets_clean <- tm_map(tweets_clean,content_transformer(tolower))
+  tweets_clean <- tm_map(tweets_clean, removeWords,stopwords("english"))
+  tweets_clean <- tm_map(tweets_clean, removeNumbers)
+  tweets_clean <- tm_map(tweets_clean, stripWhitespace)
+  tweets_clean <- tm_map(tweets_clean, stemDocument)
+```
+
+### Transforamtion
+After the step cleaning followes the trainformation of the data. 
+On way is to create a Term Document Matrix
+```
+tdm_tweets <- TermDocumentMatrix(tweets_clean)
+````
+
+### runGitHub()
+
+
+
+
