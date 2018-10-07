@@ -107,7 +107,7 @@ On way is to create a Term Document Matrix
 tdm_tweets <- TermDocumentMatrix(tweets_clean)
 ````
 
-### runGitHub()
+### runGitHub("AdvRLab5", "Philhoels", subdir = "TwitterWordCould/")
 
 
 

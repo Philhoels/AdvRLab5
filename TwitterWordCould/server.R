@@ -7,7 +7,13 @@
 #    http://shiny.rstudio.com/
 #
 
+#Load library
 library(shiny)
+library(twitteR)
+library(RCurl)
+library(SnowballC)
+library(tm)
+library(wordcloud)
 
 
 # Define server logic required to draw a histogram
@@ -38,3 +44,6 @@ shinyServer(function(input, output, searchword) {
   })
 
 })
+
+
+#runGitHub("AdvRLab5", "Philhoels", subdir = "TwitterWordCould/")
