@@ -27,6 +27,7 @@ test_that("rejects errounous input", {
 test_that("Input index not make sense", {
   expect_error(TwitterWordCould(word = "water", min_freq = 10, max_number = 2000))
   expect_error(TwitterWordCould(word = "water", min_freq = 1, max_number = 1000))
+  expect_error(TwitterWordCould(word = "water", min_freq = 1000, max_number = 100))
 })
 
 

@@ -107,8 +107,9 @@ On way is to create a Term Document Matrix
 tdm_tweets <- TermDocumentMatrix(tweets_clean)
 ````
 
-### runGitHub("AdvRLab5", "Philhoels", subdir = "TwitterWordCould/")
-
+### How to run the Shiny app:
+library(shiny)
+runGitHub("AdvRLab5", "Philhoels", subdir = "TwitterWordCould/")
 
 
 

@@ -4,9 +4,9 @@
 \name{AdvRLab5}
 \alias{AdvRLab5}
 \alias{AdvRLab5-package}
-\title{AdvRLab5: A package we have to create in lab 3 of advanced R Programming}
+\title{AdvRLab5: A package we have to create in lab 5 of advanced R Programming}
 \description{
-AdvRLab5: A package we have to create in lab 3 of advanced R Programming
+AdvRLab5: A package we have to create in lab 5 of advanced R Programming
 }
 \section{TwitterWordCould function}{
 

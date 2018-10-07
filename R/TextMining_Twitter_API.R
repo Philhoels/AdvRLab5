@@ -51,6 +51,8 @@ TwitterWordCould <- function(word, min_freq, max_number){
     stop("Can not handle more than 1500 Twitts")
   if(min_freq < 10)
     stop("Min frequent shoud not be too small (<10)")
+  if(min_freq > max_number)
+    stop("min freq shoud be langer than maximum number of Twitt")
 
   #setup autorisierung ####
   reqURL <- "https://api.twitter.com/oauth/request_token"
