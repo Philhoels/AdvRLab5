@@ -13,18 +13,11 @@
 
 
 # Setup ####
-# needed packages
-install.packages("twitteR", repos = "http://cran.us.r-project.org")
-#require(twitteR)
-install.packages("RCurl", repos = "http://cran.us.r-project.org")
-#require(RCurl)
-# part 2
-install.packages("SnowballC", repos = "http://cran.us.r-project.org")
-#require(SnowballC)
-install.packages("tm", repos = "http://cran.us.r-project.org")
-#require(tm)
-install.packages("wordcloud", repos = "http://cran.us.r-project.org")
-#require(wordcloud)
+#install.packages("twitteR", repos = "http://cran.us.r-project.org")
+#install.packages("RCurl", repos = "http://cran.us.r-project.org")
+#install.packages("SnowballC", repos = "http://cran.us.r-project.org")
+#install.packages("tm", repos = "http://cran.us.r-project.org")
+#install.packages("wordcloud", repos = "http://cran.us.r-project.org")
 
 
 #Load library
@@ -33,10 +26,19 @@ library(RCurl)
 library(SnowballC)
 library(tm)
 library(wordcloud)
+library(shiny)
 
+#Require
+#require(twitteR)
+#require(RCurl)
+#require(SnowballC)
+#require(tm)
+#require(wordcloud)
+require(shiny)
 
 # the function ####
 TwitterWordCould <- function(word, min_freq, max_number){
+
   #Illegal input
   if(typeof(word)!= "character")
     stop("Illegal input word!")

@@ -17,7 +17,6 @@ knitr::opts_chunk$set(
 ```
 
 
-
 ##About Text Mining
 
 ##What is Text Mining
@@ -108,9 +107,11 @@ tdm_tweets <- TermDocumentMatrix(tweets_clean)
 ````
 
 ### How to run the Shiny app:
+````
 library(AdvRLab5)
 library(shiny)
 runGitHub("AdvRLab5", "Philhoels", subdir = "TwitterWordCould/")
+```
 
 
 
