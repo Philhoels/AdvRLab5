@@ -1,7 +1,8 @@
-# Documentation #####
-#'
+#' @title
+#' TwiterWordCloud
 #' @description function create a data fram of the searched tweet including the frequency
-#'
+#' @name
+#' TwitterWordCould
 #'
 #' @param word , is the tweet search word
 #' @param min_freq , is the minimum frequency of the tweet search
@@ -9,8 +10,6 @@
 #'
 #' @return df_Tesla , returns a data frame with the term and frequency
 #' @export
-#'
-
 
 
 # Setup ####
