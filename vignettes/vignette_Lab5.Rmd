@@ -110,7 +110,7 @@ tdm_tweets <- TermDocumentMatrix(tweets_clean)
 ````
 library(AdvRLab5)
 library(shiny)
-runGitHub("AdvRLab5", "Philhoels", subdir = "TwitterWordCould/")
+shiny::runGitHub("AdvRLab5", "Philhoels", subdir = "TwitterWordCould/")
 ```
 
 

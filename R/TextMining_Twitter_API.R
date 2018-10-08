@@ -34,7 +34,7 @@ library(shiny)
 #require(SnowballC)
 #require(tm)
 #require(wordcloud)
-require(shiny)
+#require(shiny)
 
 # the function ####
 TwitterWordCould <- function(word, min_freq, max_number){
@@ -67,6 +67,7 @@ TwitterWordCould <- function(word, min_freq, max_number){
 
   # setup
   setup_twitter_oauth(consumer_key, consumer_secret, access_token,access_secret)
+  options(httr_oauth_cache=T)
 
   # search Twitter, just english language, max number - max_number (max is 1500 Tweets)
   tweets <- searchTwitter(word, lang = "en", n = max_number)
