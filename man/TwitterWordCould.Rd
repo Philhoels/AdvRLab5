@@ -3,9 +3,6 @@
 \name{TwitterWordCould}
 \alias{TwitterWordCould}
 \title{TwiterWordCloud}
-\usage{
-TwitterWordCould(word, min_freq, max_number)
-}
 \arguments{
 \item{word}{, is the tweet search word}
 

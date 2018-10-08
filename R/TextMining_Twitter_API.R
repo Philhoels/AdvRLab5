@@ -13,11 +13,11 @@
 
 
 # Setup ####
-#install.packages("twitteR", repos = "http://cran.us.r-project.org")
-#install.packages("RCurl", repos = "http://cran.us.r-project.org")
-#install.packages("SnowballC", repos = "http://cran.us.r-project.org")
-#install.packages("tm", repos = "http://cran.us.r-project.org")
-#install.packages("wordcloud", repos = "http://cran.us.r-project.org")
+install.packages("twitteR", repos = "http://cran.us.r-project.org")
+install.packages("RCurl", repos = "http://cran.us.r-project.org")
+install.packages("SnowballC", repos = "http://cran.us.r-project.org")
+install.packages("tm", repos = "http://cran.us.r-project.org")
+install.packages("wordcloud", repos = "http://cran.us.r-project.org")
 
 
 #Load library
@@ -26,7 +26,6 @@ library(RCurl)
 library(SnowballC)
 library(tm)
 library(wordcloud)
-library(shiny)
 
 #Require
 #require(twitteR)
@@ -34,7 +33,6 @@ library(shiny)
 #require(SnowballC)
 #require(tm)
 #require(wordcloud)
-#require(shiny)
 
 # the function ####
 TwitterWordCould <- function(word, min_freq, max_number){
